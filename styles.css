@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Secular One', sans-serif;
+    background-color: #28282f; /* Deep navy background */
+    cursor: pointer;
+    overflow-x: hidden;
+}
+
+/* Selected Element Display */
+#selectedElement {
+    position: absolute;
+    left: 15%;
+    top: 10%;
+    color: #fff;
+}
+
+#selectedElementName {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #FFC107, #4DB6AC, #3D5AFE, #FF7043);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: 300px;
+    }
+}
+
+/* Block Selector */
+#block-selector {
+    display: grid;
+    grid-template-columns: 20px 100px 20px 100px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 45%;
+    top: 5%;
+    color: #fff;
+}
+
+.box {
+    height: 20px;
+    width: 20px;
+}
+
+.s {
+    background-color: #FFC107; /* Gold for s-block */
+}
+
+.p {
+    background-color: #4DB6AC; /* Teal for p-block */
+}
+
+.d {
+    background-color: #3D5AFE; /* Deep blue for d-block */
+}
+
+.f {
+    background-color: #FF7043; /* Orange-red for f-block */
+}
+
+/* Main Grid */
+#main-grid {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-gap: 5px;
+    padding: 20px;
+}
+
+/* Element Styling */
+.element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.element:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #000;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Block-Specific Styling */
+.s-block {
+    background-color: #FFC107; /* Gold for s-block */
+    color: #000;
+}
+
+.p-block {
+    background-color: #4DB6AC; /* Teal for p-block */
+    color: #fff;
+}
+
+.d-block {
+    background-color: #3D5AFE; /* Deep blue for d-block */
+    color: #fff;
+}
+
+.f-block {
+    background-color: #FF7043; /* Orange-red for f-block */
+    color: #fff;
+}
+
+/* Popup Styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background */
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.popup {
+    background: #fff;
+    width: 60%;
+    max-width: 400px; 
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.popup .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    text-align: left;
+}
+
+.popup p {
+    margin: 0;
+    padding: 5px;
+    background: #f3f3f3;
+    border-radius: 5px;
+}
+
+/* Redesigned Circular Loading Animation */
+.loading {
+  height: 120px;
+  width: 120px;
+  position: relative;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading span {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite ease-in-out;
+  border: 2px solid transparent;
+}
+
+/* Concentric Circles */
+.loading span:nth-child(1) {
+  animation-delay: 0s;
+  border-color: #f32170; /* Pink */
+}
+
+.loading span:nth-child(2) {
+  animation-delay: 0.5s;
+  border-color: #ff6b08; /* Orange */
+}
+
+.loading span:nth-child(3) {
+  animation-delay: 1s;
+  border-color: #cf23cf; /* Purple */
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+      opacity: 0.8;
+  }
+  50% {
+      transform: scale(1.5);
+      opacity: 0.5;
+  }
+  100% {
+      transform: scale(2);
+      opacity: 0;
+  }
+}
